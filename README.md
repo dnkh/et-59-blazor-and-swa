@@ -11,7 +11,7 @@
 
 
 ### Static-Web-Apps
-- [Node.js](https://nodejs.org)
+- [Node.js](https://nodejs.org) We need Version 1.16  :-( Sorry!
 - [Azure Subscription](https://azure.microsoft.com/en-us/free)
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 - [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Cportal%2Cv2%2Cbash&pivots=programming-language-csharp)
