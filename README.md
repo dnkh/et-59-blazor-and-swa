@@ -7,7 +7,7 @@
 - 
 
 ### Blazor
--
+- [Azure Storage Explorer](https://azure.microsoft.com/de-de/products/storage/storage-explorer/)
 
 
 ### Static-Web-Apps
