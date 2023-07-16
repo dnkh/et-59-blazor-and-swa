@@ -1,0 +1,41 @@
+@using System.Globalization
+@inject NavigationManager NavigationManager
+@inject IPOIDataService POIDataService
+
+<div id ="POIComponent">
+    <img src="@POIData.ImageUri" />
+    <h4>@POIData.Name</h4>
+    <p>@POIData.Description</p>
+    <p>Date:@POIData.Date.ToShortDateString()</p>
+    <p>
+        <button @onclick="@EditPoi" class="btn btn-primary" >Edit</button>
+        <button @onclick="@DeletePoi" class="btn btn-primary" >Delete</button>
+    </p>
+    <a href="@GetMapsUrl()" target="_blank">Link to Google Maps</a>
+</div>
+
+@code
+{
+    [Parameter]
+    public POIData POIData { get; set; } = new POIData();
+    
+    [Parameter]
+    public EventCallback<POIData> DeleteHandler {get;set;}
+
+    private string GetMapsUrl()
+    {
+        string url = "https://www.google.com/maps/search/?api=1&query=";
+        url += POIData.Latitude.ToString(CultureInfo.InvariantCulture) + ",";
+        url += POIData.Longitude.ToString(CultureInfo.InvariantCulture);
+        return url;
+    }
+
+    private void EditPoi()
+    {
+        NavigationManager.NavigateTo($"/poi/{POIData.Id}");
+    }
+    private void DeletePoi()
+    {
+        DeleteHandler.InvokeAsync(POIData);
+    }
+}

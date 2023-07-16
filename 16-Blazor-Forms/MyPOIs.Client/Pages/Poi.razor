@@ -1,0 +1,76 @@
+@page "/poi/{Id:guid}"
+@page "/poi"
+@inject IPOIDataService POIDataService
+@inject NavigationManager NavigationManager
+
+
+<h2>Poi</h2>
+
+@if(poiData is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <EditForm EditContext="@editContext" OnValidSubmit="@HandleSubmit"  >
+        
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div style="display: flex; flex-direction: column;">
+            <label for="name">Name:</label>
+            <InputText id="name" @bind-Value="poiData.Name" />
+            <label for="description">Description:</label>
+            <InputTextArea id="description" @bind-Value="poiData.Description" />
+            <label for="image">ImageUri:</label>
+            <InputText id="image" @bind-Value="poiData.ImageUri" />
+            <label for="lat">Latitude:</label>
+            <InputNumber id="lat" @bind-Value="poiData.Latitude"  />
+            <label for="lot">Longitude:</label>
+            <InputNumber id="lot" @bind-Value="poiData.Longitude" />
+            <label for="date">Datum:</label>
+            <InputDate id="date" @bind-Value="poiData.Date" />
+            <button class="btn btn-primary" type="submit">Speichern</button>
+        </div>
+
+    </EditForm>
+
+    <img src="@poiData.ImageUri" style="width: 100%; object-fit: contain;" />
+}
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private EditContext editContext;
+
+    private POIData? poiData {get;set;} = new ();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id == Guid.Empty)
+        {
+            poiData = new POIData();
+        }
+        else
+        {
+            poiData = await POIDataService.GetPOI(Id);
+        }
+        editContext = new EditContext(poiData);
+    }
+
+    private async Task HandleSubmit()
+    {
+        if (editContext != null && editContext.Validate())
+        {
+           Console.WriteLine("HandleSubmit called: Form is valid");
+           await POIDataService.AddPOI(poiData);
+           NavigationManager.NavigateTo("/gallery");      
+        }
+        else
+        {
+            Console.WriteLine("HandleSubmit called: Form is INVALID");
+            await Task.CompletedTask;
+        }
+    }
+}

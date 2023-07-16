@@ -1,0 +1,31 @@
+@page "/gallery"
+@inject IPOIDataService POIDataService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Gallery</PageTitle>
+
+<h1>Gallery</h1>
+<br/>
+<button class="btn btn-primary" @onclick="AddPOI">Add POI</button>
+<div style="display:flex; flex-wrap:wrap;">
+    <GalleryComponent TItem="POIData" Items="POIs">
+        <POIComponent POIData="context" DeleteHandler="DeletePOI" /> 
+    </GalleryComponent>
+</div>
+
+@code
+{
+    private IEnumerable<POIData> POIs { get; set; } = new List<POIData>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        POIs = await POIDataService.GetPOIs();
+    }
+
+    protected void AddPOI()
+    {
+        NavigationManager.NavigateTo("/poi");
+    }
+
+    protected async Task DeletePOI(POIData POIData) => await POIDataService.DeletePOI(POIData);
+}

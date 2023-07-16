@@ -1,0 +1,22 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "22-blazor-swa": {
+      "appLocation": "MyPOIs.Client",
+      "apiLocation": "Api",
+      "outputLocation": "publish\\wwwroot",
+      "apiLanguage": "dotnet",
+      "apiVersion": "6.0",
+      "appBuildCommand": "dotnet publish -c Release -o publish",
+      "apiBuildCommand": "dotnet publish -c Release -o publish",
+      "run": "dotnet watch run",
+      "appDevserverUrl": "http://localhost:5143",
+      "appName": "et59-swa-prepared",
+      "resourceGroup": "ET59-Prepared",
+      "deploy": {
+        "apiLocation": "Api\\publish",
+        "outputLocation": "publish\\wwwroot"
+      }
+    }
+  }
+}

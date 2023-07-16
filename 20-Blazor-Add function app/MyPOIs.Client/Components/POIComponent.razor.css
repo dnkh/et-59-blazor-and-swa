@@ -1,0 +1,10 @@
+#POIComponent {
+    border:2px solid black;; 
+    width:200px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#POIComponent > img {
+    max-width: 100%;
+}

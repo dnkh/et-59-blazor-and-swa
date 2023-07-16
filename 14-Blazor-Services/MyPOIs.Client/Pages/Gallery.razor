@@ -1,0 +1,22 @@
+@page "/gallery"
+@inject IPOIDataService POIDataService
+
+<PageTitle>Gallery</PageTitle>
+
+<h1>Gallery</h1>
+
+<div style="display:flex; flex-wrap:wrap;">
+    <GalleryComponent TItem="POIData" Items="POIs">
+        <POIComponent POIData="context" /> 
+    </GalleryComponent>
+</div>
+
+@code
+{
+    private IEnumerable<POIData> POIs { get; set; } = new List<POIData>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        POIs = await POIDataService.GetPOIs();
+    }
+}

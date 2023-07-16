@@ -1,0 +1,11 @@
+{
+    "dotnet.defaultSolution": "MyPOIs.Client\\MyPOIs.Client.sln",
+    "rest-client.enableTelemetry": false,
+    "gitlens.telemetry.enabled": false,
+    "dotnetAcquisitionExtension.enableTelemetry": false,
+    "azureFunctions.deploySubpath": "Api/bin/Release/net6.0/publish",
+    "azureFunctions.projectLanguage": "C#",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "publish (functions)"
+}

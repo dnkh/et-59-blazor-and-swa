@@ -1,0 +1,22 @@
+@using System.Globalization
+
+<div id ="POIComponent">
+    <img src="@POIData.ImageUri" />
+    <h4>@POIData.Name</h4>
+    <p>@POIData.Description</p>
+    <p>Date:@POIData.Date.ToShortDateString()</p>
+    <a href="@GetMapsUrl()" target="_blank">Link to Google Maps</a>
+</div>
+
+@code {
+    [Parameter]
+    public POIData POIData { get; set; } = new POIData();
+
+    private string GetMapsUrl()
+    {
+        string url = "https://www.google.com/maps/search/?api=1&query=";
+        url += POIData.Latitude.ToString(CultureInfo.InvariantCulture) + ",";
+        url += POIData.Longitude.ToString(CultureInfo.InvariantCulture);
+        return url;
+    }
+}

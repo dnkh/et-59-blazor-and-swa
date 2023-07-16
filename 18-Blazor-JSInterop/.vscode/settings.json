@@ -1,0 +1,6 @@
+{
+    "dotnet.defaultSolution": "MyPOIs.Client\\MyPOIs.Client.sln",
+    "rest-client.enableTelemetry": false,
+    "gitlens.telemetry.enabled": false,
+    "dotnetAcquisitionExtension.enableTelemetry": false
+}

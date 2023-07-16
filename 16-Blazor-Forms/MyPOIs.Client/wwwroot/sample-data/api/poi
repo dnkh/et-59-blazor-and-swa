@@ -1,0 +1,39 @@
+[
+    {
+        "Id": "f5d200a9-c256-4a6c-aa3f-0486ae4206c7",
+		"Name": "Kapstadt",
+        "Description": "Suedafrika Urlaub" ,
+        "Latitude": -33.92584,
+        "Longitude": 18.42322,
+        "ImageUri": "https://th.bing.com/th/id/OIP.r7JR4FHdGI1LRQ68CdtvGQHaEw?pid=ImgDet&rs=1",
+        "Date":"2023-04-06"
+    },
+    {
+        "Id": "f5d200a9-c256-4a6c-aa3f-0486ae4206c8",
+		"Name": "Maui",
+        "Description": "Hawaii Urlaub" ,
+        "Latitude": 20.8,
+        "Longitude": -156.333333333,
+        "ImageUri": "https://www.fodors.com/wp-content/uploads/2018/03/Ultimate-Maui-Hero.jpg",
+        "Date":"2022-03-28"
+    },
+    {
+        "Id": "f5d200a9-c256-4a6c-aa3f-0486ae4206c9",
+		"Name": "Dubai",
+        "Description": "Dubai Urlaub" ,
+        "Notes": "2023",
+        "Latitude": 25.2684,
+        "Longitude": 55.2962,
+        "ImageUri": "https://th.bing.com/th/id/R.83d3c03c299fd296c0fea03f2dfeb771?rik=6vgfnYIvTO4CQg&pid=ImgRaw&r=0",
+        "Date":"2023-02-07"
+    },
+    {
+        "Id": "f5d200a9-c256-4a6c-aa3f-0486ae4206c0",
+		"Name": "München",
+        "Description": "Entwicklertag 59" ,
+        "Latitude": 48.1374,
+        "Longitude": 11.5755,
+        "ImageUri": "https://muenchen.mitvergnuegen.com/wp-content/uploads/sites/3/2017/08/shutterstock_428830336.jpg",
+        "Date":"2023-07-14"
+    }
+]

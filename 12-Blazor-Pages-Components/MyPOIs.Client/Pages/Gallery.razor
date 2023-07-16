@@ -1,0 +1,25 @@
+@page "/gallery"
+
+<PageTitle>Gallery</PageTitle>
+
+<h1>Gallery</h1>
+
+<GalleryComponent TItem="POIData" Items="POIs">
+    <POIComponent POIData="context" /> 
+</GalleryComponent>
+
+
+@code
+{
+    private IEnumerable<POIData> POIs { get; set; } = new List<POIData>();
+
+    protected override void OnInitialized()
+    {
+        POIs = new List<POIData>
+        {
+            new POIData { Name = "Spanien" },
+            new POIData { Name = "Frankreich" },
+            new POIData { Name = "Norwegen" }
+        };
+    }
+}
